@@ -11,6 +11,7 @@
 **Objetivo:** Predecir y explicar el nivel de engagement de los jugadores en videojuegos online a partir de sus características demográficas, sus hábitos de uso y las características del propio juego, con el objetivo de diseñar estrategias de fidelización y optimizar la monetización de los usuarios.
 
 **Estructura del repositorio:**
+
 data/               # datasets originales y procesados
 
 notebooks/          # análisis exploratorio, preprocesamiento y modelado
