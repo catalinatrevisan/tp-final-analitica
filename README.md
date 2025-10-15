@@ -12,8 +12,8 @@
 
 **Estructura del repositorio:**
 
-data/                     # datasets originales y procesados
+data/: datasets originales y procesados
 
-notebooks/                    # análisis exploratorio, preprocesamiento y modelado
+notebooks: análisis exploratorio, preprocesamiento y modelado
 
-README.md                    # descripción general del proyecto
+README.md: descripción general del proyecto
