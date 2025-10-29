@@ -1,5 +1,4 @@
-# TP Final Analítica
-# Predicción y explicación del engagement y comportamiento de los jugadores en videojuegos online
+# TP Final Analítica: Predicción y explicación del engagement y comportamiento de los jugadores en videojuegos online
 
 ## Descripción general  
 Este proyecto busca **predecir y explicar el nivel de engagement** de los jugadores en videojuegos online a partir de sus características demográficas, sus hábitos de uso y las propiedades del propio juego.  
