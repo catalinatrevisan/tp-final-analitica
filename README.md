@@ -21,7 +21,11 @@ El dataset contiene información demográfica y de comportamiento de jugadores, 
 
 
 ## Hipótesis  
-Los hábitos de uso de los jugadores —como la **frecuencia de las sesiones**, la **duración promedio** y los **logros desbloqueados**— son los factores que más influyen en el nivel de *engagement* en videojuegos online.
+Se plantean las siguientes hipótesis basadas en el análisis exploratorio y la literatura sobre comportamiento de usuarios en videojuegos:
+1. **H1:** Los jugadores con mayor frecuencia de sesiones presentan niveles de engagement más altos.
+2. **H2:** La duración promedio de las sesiones tiene un efecto positivo sobre el engagement.
+3. **H3:** La cantidad de logros desbloqueados no es un predictor significativo del engagement, dado que depende en gran parte de la mecánica del juego.
+4. **H4:** Variables demográficas como el género o la ubicación geográfica podrían influir en el tipo de engagement, aunque en menor medida que los hábitos de juego.
 
 
 ## Objetivo  
@@ -38,3 +42,20 @@ Del análisis exploratorio de datos surgen diferencias claras entre los niveles 
 - En la variable **AchievementsUnlocked** no se observan diferencias tan marcadas entre grupos, lo que podría indicar que el número de logros desbloqueados depende más de la **mecánica del juego** que del nivel de *engagement*.  
 
 Estas relaciones **validan el uso de las variables de comportamiento como indicadores del compromiso de los jugadores** y aportan una base sólida para la modelización predictiva posterior.
+
+
+## Tests de hipótesis y validación estadística
+Para validar formalmente las hipótesis planteadas, se aplicaron distintos tests estadísticos según el tipo de variable y los supuestos de normalidad y homogeneidad de varianzas:
+- **ANOVA de un factor:** se utilizó para comparar medias de variables continuas (como duración promedio o sesiones semanales) entre los distintos niveles de engagement. Resultados: se observaron diferencias estadísticamente significativas (p < 0.05) en la frecuencia y duración promedio de sesiones entre grupos de engagement, confirmando H1 y H2.
+- **Pruebas no paramétricas (Kruskal-Wallis):** aplicadas en los casos donde no se cumplían los supuestos de normalidad. Resultados consistentes con los del ANOVA, reforzando la validez de los hallazgos.
+- **Chi-cuadrado de independencia:** empleado para evaluar la relación entre variables categóricas (como Gender, Location) y el nivel de engagement. No se encontraron asociaciones significativas (p > 0.05), lo que respalda H4 parcialmente.
+- **Correlación de Pearson y VIF:** utilizadas para detectar multicolinealidad y redundancia entre variables numéricas, como PlayTimeHours, SessionsPerWeek y AvgSessionDurationMinutes.
+
+En conjunto, los resultados confirman que los hábitos de uso son los factores más determinantes del nivel de engagement, mientras que las características demográficas juegan un rol menor o no significativo.
+
+
+## Conclusiones
+- Los **hábitos de juego** (frecuencia y duración de las sesiones) son los principales impulsores del engagement.
+- Los **logros desbloqueados** y las variables demográficas tienen una influencia menor o no significativa.
+- El preprocesamiento y la validación estadística confirman la robustez de las variables seleccionadas para el modelado.
+- El análisis permite derivar **insights accionables** para estrategias de retención y segmentación de jugadores.
