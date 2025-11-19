@@ -54,8 +54,20 @@ Para validar formalmente las hipótesis planteadas, se aplicaron distintos tests
 En conjunto, los resultados confirman que los hábitos de uso son los factores más determinantes del nivel de engagement, mientras que las características demográficas juegan un rol menor o no significativo.
 
 
+## Modelado Predictivo
+Se entrenaron tres modelos —**Regresión Logística, Random Forest y Gradient Boosting**— para predecir el engagement de los jugadores. La Regresión Logística alcanzó un rendimiento correcto (83.7% accuracy), aunque limitado por su linealidad. Random Forest mejoró significativamente la performance (90.3%) gracias a su capacidad para capturar relaciones complejas. Finalmente, **Gradient Boosting obtuvo el mejor desempeño** (91.5%), con métricas muy equilibradas y excelente capacidad de generalización, por lo que fue elegido como **modelo final**.
+
+En todos los modelos surgieron patrones consistentes: las variables de uso —**SessionsPerWeek, PlayIntensity y AvgSessionDurationMinutes**— fueron las más influyentes. Las variables demográficas aportaron muy poco, reforzando la conclusión de que el engagement está determinado principalmente por los hábitos de juego.
+
+
+## Análisis complementario: Clustering y PCA
+El clustering permitió explorar la estructura natural de los jugadores, resultando en tres grupos de tamaños equilibrados y con tendencias claras en sus niveles de engagement. Aunque no replican exactamente las etiquetas, sí reflejan **estilos de juego diferenciados**.
+
+El PCA mostró que los dos primeros componentes explican el **72.36% de la varianza**, lo que indica que la mayor parte de la estructura del comportamiento puede resumirse en pocos ejes principales.
+
+
 ## Conclusiones
-- Los **hábitos de juego** (frecuencia y duración de las sesiones) son los principales impulsores del engagement.
-- Los **logros desbloqueados** y las variables demográficas tienen una influencia menor o no significativa.
-- El preprocesamiento y la validación estadística confirman la robustez de las variables seleccionadas para el modelado.
-- El análisis permite derivar **insights accionables** para estrategias de retención y segmentación de jugadores.
+- Los **hábitos de juego** (frecuencia y duración de las sesiones) son los principales determinantes del engagement.
+- **Gradient Boosting** es el modelo que ofrece la mejor performance predictiva y estabilidad.
+- El análisis de clústeres refuerza la existencia de patrones naturales de comportamiento entre jugadores.
+- Los resultados del análisis permiten derivar **insights accionables** orientando estrategias de retención y segmentación de jugadores basadas en frecuencia de juego, duración de sesiones y diseño de progresión.
