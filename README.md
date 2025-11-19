@@ -1,13 +1,16 @@
 # TP Final Analítica: Predicción y explicación del engagement y comportamiento de los jugadores en videojuegos online
 
-## Descripción general  
-Este proyecto busca **predecir y explicar el nivel de engagement** de los jugadores en videojuegos online a partir de sus características demográficas, sus hábitos de uso y las propiedades del propio juego.  
-El objetivo final es **diseñar estrategias de fidelización** y **optimizar la monetización** de los usuarios dentro de plataformas de juego.
+## Resumen ejecutivo
+Este proyecto desarrolla un sistema analítico completo para **predecir el nivel de engagement** de jugadores en videojuegos online y **explicar qué factores lo determinan**.  
+Se realizaron análisis exploratorio, validación estadística, modelado predictivo, clustering y reducción de dimensionalidad.  
+
+Los resultados muestran que **los hábitos de uso son los principales predictores del engagement**, mientras que variables demográficas aportan poco valor.  
+El modelo final —**Gradient Boosting**— alcanzó un desempeño del **91.5% de accuracy**, constituyendo una herramienta sólida para estrategias de retención y monetización.
 
 
 ## Contexto de negocio  
-Las empresas del sector de videojuegos buscan maximizar el *engagement* y la **retención de usuarios**, ya que el modelo de negocio actual se basa principalmente en **suscripciones, microtransacciones y experiencias online** más que en la venta única de títulos.  
-Comprender los patrones de comportamiento de los jugadores permite desarrollar estrategias más efectivas para aumentar la interacción y el valor de vida del cliente (*LTV*).
+Las empresas del sector de videojuegos buscan maximizar el **engagement** y la **retención de usuarios**, ya que el modelo de negocio actual se basa principalmente en **suscripciones, microtransacciones y experiencias online** más que en la venta única de títulos.  
+Comprender los patrones de comportamiento de los jugadores permite desarrollar estrategias más efectivas para optimizar campañas de retención, anticipar abandono (churn), personalizar experiencias y diseñar mecánicas de progresión más efectivas.
 
 
 ## Dataset  
@@ -18,6 +21,8 @@ El dataset contiene información demográfica y de comportamiento de jugadores, 
 - Duración promedio de las sesiones  
 - Logros desbloqueados (*AchievementsUnlocked*)  
 - Nivel de *engagement* (variable objetivo)
+
+Se realizó un filtrado de columnas irrelevantes, normalización de formatos y tratamiento de valores faltantes.
 
 
 ## Hipótesis  
@@ -44,6 +49,16 @@ Del análisis exploratorio de datos surgen diferencias claras entre los niveles 
 Estas relaciones **validan el uso de las variables de comportamiento como indicadores del compromiso de los jugadores** y aportan una base sólida para la modelización predictiva posterior.
 
 
+## Preprocesamiento realizado
+- Eliminación de duplicados  
+- Tratamiento conservador de outliers  
+- One-Hot Encoding para variables categóricas  
+- StandardScaler para modelos sensibles a escala  
+- Train/Test split estratificado  
+- Revisión de multicolinealidad (VIF)  
+- No se requirió balanceo por distribución equilibrada
+
+
 ## Tests de hipótesis y validación estadística
 Para validar formalmente las hipótesis planteadas, se aplicaron distintos tests estadísticos según el tipo de variable y los supuestos de normalidad y homogeneidad de varianzas:
 - **ANOVA de un factor:** se utilizó para comparar medias de variables continuas (como duración promedio o sesiones semanales) entre los distintos niveles de engagement. Resultados: se observaron diferencias estadísticamente significativas (p < 0.05) en la frecuencia y duración promedio de sesiones entre grupos de engagement, confirmando H1 y H2.
@@ -67,7 +82,22 @@ El PCA mostró que los dos primeros componentes explican el **72.36% de la varia
 
 
 ## Conclusiones
-- Los **hábitos de juego** (frecuencia y duración de las sesiones) son los principales determinantes del engagement.
-- **Gradient Boosting** es el modelo que ofrece la mejor performance predictiva y estabilidad.
-- El análisis de clústeres refuerza la existencia de patrones naturales de comportamiento entre jugadores.
-- Los resultados del análisis permiten derivar **insights accionables** orientando estrategias de retención y segmentación de jugadores basadas en frecuencia de juego, duración de sesiones y diseño de progresión.
+- El engagement se explica principalmente por **hábitos de uso**.  
+- **Gradient Boosting** es el modelo con mejor desempeño y generalización.  
+- El clustering complementa la segmentación y PCA resume bien la estructura del dataset.  
+- Los resultados habilitan estrategias basadas en **frecuencia, duración y progresión** de juego.
+
+
+## Limitaciones del estudio
+- Dataset basado en datos simulados / autorreportados.  
+- Variables demográficas poco representativas.  
+- No se modelaron efectos temporales.  
+- Engagement definido como etiqueta estática.
+
+
+## Líneas futuras de mejora
+- Incorporar **datos reales de telemetría** (clics, tiempo activo, microtransacciones).  
+- Modelos secuenciales (LSTM, Transformers) para engagement dinámico.  
+- Análisis adicional de churn.  
+- Nuevas features: progresión, interacción social, comportamiento económico.  
+- Dashboards interactivos para monitoreo en tiempo real.
